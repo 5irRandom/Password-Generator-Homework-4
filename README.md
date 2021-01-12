@@ -5,4 +5,4 @@ This is the completed app, with all of the functionality described in the readme
 
 Link to the webpage: https://5irrandom.github.io/Password-Generator-Homework-4/
 
-![image of the completed application](https://github.com/5irRandom/Password-Generator-Homework-4/Assets/myCompletedVersion.png?raw=true
+!(https://github.com/5irRandom/Password-Generator-Homework-4/Assets/myCompletedVersion.png?raw=true)
