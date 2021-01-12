@@ -1,9 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-let lowerCase = "abcdefghijklmnopqrstuvwxyz".split('');
-let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-let numbers = "0123456789".split('');
-let specialChars = " !#$%&()*+,-./:;<=>?@[]^_`{|}~".split(''); //I have read online that this is a bad move in general, but as its a completely controlled environment I think it might be okay, that being said I would appreciate advice on alternatives.
+var lowerCase = "abcdefghijklmnopqrstuvwxyz".split('');
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+var numbers = "0123456789".split('');
+var specialChars = " !#$%&()*+,-./:;<=>?@[]^_`{|}~".split(''); //I have read online that this is a bad move in general, but as its a completely controlled environment I think it might be okay, that being said I would appreciate advice on alternatives.
+
 
 
 // Write password to the #password input
@@ -20,30 +21,32 @@ function writePassword() {
 
 // The main function, actually responsible for everything
 function generatePassword(index, passwordLower, passwordUpper, passwordNumbers, passwordSpecial) {
-  var password = '';
+var password = '';
   for(var i = 0; i < index; i++){
     var choiceType = Math.round(Math.random() * (3));
-    if (passwordLower === True && choiceType === 0) {
+    console.log(choiceType)
+    if (passwordLower === true && choiceType === 0) {
       password += passwordMaking(lowerCase);
-    } else if (passwordUpper === True && choiceType === 1) {
+    } else if (passwordUpper === true && choiceType === 1) {
       password += passwordMaking(upperCase);
-    } else if (passwordNumbers === True && choiceType === 2) {
+    } else if (passwordNumbers === true && choiceType === 2) {
       password += passwordMaking(numbers);
-    } else if (passwordSpecial === True && (choiceType === 3 || choiceType === 2 || choiceType === 1 || choiceType === 0)) {
+    } else if (passwordSpecial === true && choiceType === 3) {
       password += passwordMaking(specialChars);
     }
+    console.log(password)
   }
   return password;
 }
 
 function passwordMaking(inputChars) {
   var randomChar = numberGenerator(inputChars);
-  password += lowerCase[randomChar];
-  return password;
+  return inputChars[randomChar];
 }
 
 function numberGenerator(inputLength) {
-  var randomChar = Math.round(Math.random() * (inputLength.length) - 1);
+  var randomChar = Math.floor(Math.random() * (inputLength.length));
+  console.log(randomChar);
   return randomChar;
 }
 
