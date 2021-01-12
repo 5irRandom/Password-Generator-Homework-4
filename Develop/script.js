@@ -8,10 +8,7 @@ let specialChars = " !#$%&()*+,-./:;<=>?@[]^_`{|}~".split(''); //I have read onl
 
 // Write password to the #password input
 function writePassword() {
-  var passwordLength = 0;
-  while (8 > passwordLength > 128) {
-    passwordLength = prompt("How long?");
-  }
+  var passwordLength = prompt("How long?")
   var passwordLower = confirm("Lowercase?");
   var passwordUpper = confirm("Uppercase?");
   var passwordNumbers = confirm("Numbers?");
@@ -25,14 +22,14 @@ function writePassword() {
 function generatePassword(index, passwordLower, passwordUpper, passwordNumbers, passwordSpecial) {
   var password = '';
   for(var i = 0; i < index; i++){
-    choiceType
-    if (passwordLower === True) {
+    var choiceType = Math.round(Math.random() * (3));
+    if (passwordLower === True && choiceType === 0) {
       password += passwordMaking(lowerCase);
-    } else if (passwordUpper === True) {
+    } else if (passwordUpper === True && choiceType === 1) {
       password += passwordMaking(upperCase);
-    } else if (passwordNumbers === True) {
+    } else if (passwordNumbers === True && choiceType === 2) {
       password += passwordMaking(numbers);
-    } else if (passwordSpecial === True) {
+    } else if (passwordSpecial === True && (choiceType === 3 || choiceType === 2 || choiceType === 1 || choiceType === 0)) {
       password += passwordMaking(specialChars);
     }
   }
