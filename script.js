@@ -30,7 +30,6 @@ var password = '';
 var array = [passwordLower, passwordUpper, passwordNumbers, passwordSpecial];
   for(var i = 0; i < index; i++){
     var choiceType = Math.round(Math.random() * (array.filter(Boolean).length-1));
-    console.log(choiceType)
     if (passwordLower === true && choiceType === 0) {
       password += passwordMaking(lowerCase);
     } else if ((passwordUpper === true && choiceType === 1 && passwordLower !== false) || (passwordUpper === true && passwordLower === false && choiceType === 0)) {
@@ -40,7 +39,6 @@ var array = [passwordLower, passwordUpper, passwordNumbers, passwordSpecial];
     } else if (((passwordSpecial === true && choiceType === 3 && passwordNumbers !== false) && passwordUpper === true && passwordLower === true) || (((passwordLower === false && passwordUpper === false) && passwordNumbers === false) && choiceType === 0) || (((passwordLower === false && passwordUpper === false) && passwordNumbers === true) && choiceType === 1) || (((passwordLower === true ^ passwordUpper === true) && passwordNumbers === false) && choiceType === 1) || (((passwordLower === true ^ passwordUpper === true) && passwordNumbers === true) && choiceType === 2)) {
       password += passwordMaking(specialChars);
     } //Yes that was incredibly messy, any suggestions on how to do that better would be appreciated, please this is actually really annoying there has to be a better way
-    console.log(password)
   }
   return password;
 }
@@ -52,7 +50,6 @@ function passwordMaking(inputChars) {
 
 function numberGenerator(inputLength) {
   var randomChar = Math.floor(Math.random() * (inputLength.length));
-  console.log(randomChar);
   return randomChar;
 }
 
